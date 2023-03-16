@@ -3,6 +3,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 const routes = require('./routes/index');
 
+require('./DB/mongoose');
+
 app.use(express.json());
 app.use(express.urlencoded());
 
