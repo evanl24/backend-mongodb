@@ -29,6 +29,7 @@ exports.authMiddleware = async (req, res, next) => {
 exports.authPage = async (req, res, next) => {
   try {
     res.json(req.body.user);
+
   } catch (error) {
     console.log(error);
   }
