@@ -22,7 +22,7 @@
     "express": "^4.18.2",
     "mongoose": "^7.0.2",
     "node.js": "^0.0.1-security",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.21"
