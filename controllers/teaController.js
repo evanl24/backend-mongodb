@@ -1,7 +1,4 @@
-exports.middlewareTest = (req, res, next) => {
-  req.name = 'test';
-  next();
-}
+const tea = require("../models/teas");
 
 exports.homePage = async (req, res) => {
   const teas = ['Green', 'Black', 'White', 'Oolong'];
@@ -14,24 +11,11 @@ exports.homePage = async (req, res) => {
   }
 };
 
-exports.authMiddleware = async (req, res, next) => {
+exports.createTea = async (req, res) => {
   try {
-    if (req.body.user) {
-      next();
-    } else  {
-      res.json('Sign in to continue');
-    }
+    const tea = new Tea(req.body);
+    await tea.save();
   } catch (error) {
-    console.log(error);
-  }
-}
-
-exports.authPage = async (req, res, next) => {
-  try {
-    res.json(req.body.user);
-
-  } catch (error) {
-    console.log(error);
-  }
-}
-
+    res.status(500).json(error);
+  };
+};
