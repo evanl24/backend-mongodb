@@ -22,4 +22,6 @@ teaSchema.pre('save', (next) => {
     this.slug = slugify(this.name);
     next();
 })
-mongoose.modules.exports = mongoose.model('Tea', teaSchema);
+mongoose.modules.exports = function () {
+  mongoose.model('Tea', teaSchema);
+} 
